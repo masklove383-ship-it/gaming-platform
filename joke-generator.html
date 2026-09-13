@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Random Joke Generator - Get funny jokes instantly from an external API">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <div class="joke-generator">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="title">😂 Random Joke Generator</h1>
+                <p class="subtitle">Get a laugh with our collection of random jokes!</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="joke-card">
+                <!-- Joke Display -->
+                <div class="joke-container">
+                    <div class="joke-type" id="jokeType">Loading...</div>
+                    <div class="joke-text" id="jokeText">Click the button to generate a joke!</div>
+                </div>
+
+                <!-- Loading Animation -->
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Fetching a funny joke...</p>
+                </div>
+
+                <!-- Buttons Section -->
+                <div class="buttons-section">
+                    <button class="btn btn-primary" id="generateBtn" onclick="generateJoke()">
+                        <span class="btn-icon">🎲</span>
+                        Generate New Joke
+                    </button>
+                    <button class="btn btn-secondary" id="copyBtn" onclick="copyJoke()" title="Copy to clipboard">
+                        <span class="btn-icon">📋</span>
+                        Copy
+                    </button>
+                    <button class="btn btn-tertiary" id="shareBtn" onclick="shareJoke()" title="Share on social media">
+                        <span class="btn-icon">🔗</span>
+                        Share
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <h2>Choose a Category</h2>
+                <div class="categories-grid">
+                    <button class="category-btn" onclick="generateJokeByCategory('general')">
+                        <span class="cat-icon">😄</span>
+                        <span class="cat-name">General</span>
+                    </button>
+                    <button class="category-btn" onclick="generateJokeByCategory('programming')">
+                        <span class="cat-icon">💻</span>
+                        <span class="cat-name">Programming</span>
+                    </button>
+                    <button class="category-btn" onclick="generateJokeByCategory('knock-knock')">
+                        <span class="cat-icon">🚪</span>
+                        <span class="cat-name">Knock Knock</span>
+                    </button>
+                    <button class="category-btn" onclick="generateJokeByCategory('dad')">
+                        <span class="cat-icon">👨</span>
+                        <span class="cat-name">Dad Jokes</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-section">
+                <div class="history-header">
+                    <h2>Recent Jokes</h2>
+                    <button class="btn-clear" onclick="clearHistory()" title="Clear history">🗑️ Clear</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <p class="empty-message">No jokes yet. Generate your first joke!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
